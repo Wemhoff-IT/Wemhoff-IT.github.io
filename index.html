@@ -13,16 +13,19 @@
 		
 		let liter = parseFloat(window.prompt("Wie viel Liter Treibstoff möchten Sie tanken?").trim());
 		let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
-		
+
+		// check for possible fuels
 		if(fuel == "Diesel" || fuel == "Super" || fuel == "E10" )
 		{
+			// check if value is number
 			if(typeof(liter) === "number")
 			{
-				let calc;			
-
-				if(fuel == "Diesel") calc = Math.floor(liter * 1.74).toFixed(2)
-				if(fuel == "Super") calc = Math.floor(liter * 1.82).toFixed(2)
-				if(fuel == "E10") calc = Math.floor(liter * 1.78).toFixed(2)
+				let calc;		
+				
+				// calculate and fix float multiplication error
+				if(fuel == "Diesel") calc = (liter * 1.74).toFixed(2)
+				if(fuel == "Super") calc = (liter * 1.82).toFixed(2)
+				if(fuel == "E10") calc = (liter * 1.78).toFixed(2)
 				
 				document.write("<h2>Vielen Dank</h2><br>");			
 				document.write("<p>Sie Tanken: " + liter + " Liter " + fuel + ".</p><br>");
