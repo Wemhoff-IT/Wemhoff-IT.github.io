@@ -12,14 +12,16 @@
 		<script>
 		
 		let liter = parseFloat(window.prompt("Wie viel Liter Treibstoff möchten Sie tanken?").trim());
-		let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
-
-		// check for possible fuels
-		if(fuel == "Diesel" || fuel == "Super" || fuel == "E10" )
+			
+		// check if value is number
+		if(typeof(liter) === "number")
 		{
-			// check if value is number
-			if(typeof(liter) === "number")
+			let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
+
+			// check for possible fuels
+			if(fuel == "Diesel" || fuel == "Super" || fuel == "E10" )
 			{
+
 				let calc;		
 				
 				// calculate and fix float multiplication error
@@ -32,14 +34,15 @@
 				document.write("<p>Die Gesamtsumme beträgt: " + calc + " €</p>");			
 			}
 			else
-			{
-				document.write("<p>Nur Zahlen bei der Literangabe, bitte Eingabe überprüfen.</p>");
+			{	
+				document.write("<p>Bitte die Treibstoffangabe überprüfen. Mögliche Treibstoffarten sind Diesel, Super oder E10.</p>");			
 			}
 		}
 		else
-		{	
-			document.write("<p>Bitte die Treibstoffangabe überprüfen. Mögliche Treibstoffarten sind Diesel, Super oder E10.</p>");			
+		{
+			document.write("<p>Nur Zahlen bei der Literangabe, bitte Eingabe überprüfen.</p>");
 		}
+
 		</script>
 	</body>
 </html>
