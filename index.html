@@ -7,27 +7,36 @@
 	</head>
 	<body>
 	
-		<h1>Operatoren</h1>
+		<h1>Benzinpreisrechner</h1>
 
 		<script>
 		
-		let bn = window.prompt("Ihr Benutzername bitte");
-		let pw = window.prompt("Ihr Passwort bitte");
+		let liter = parseFloat(window.prompt("Wie viel Liter Treibstoff möchten Sie tanken?").trim());
+		let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
 		
-		if(bn == "Hotte" && pw == "bubu"){
-		
-			document.write("<p>Herzlich Willkommen</p>");
-			
-		}else{
-		
-			document.write("<p>Kein Zugang</p>");
-			
+		if(fuel == "Diesel" || fuel == "Super" || fuel == "E10" )
+		{
+			if(typeof(liter) === "number")
+			{
+				let calc;			
+
+				if(fuel == "Diesel") calc = liter * 1.74
+				if(fuel == "Super") calc = liter * 1.82
+				if(fuel == "E10") calc = liter * 1.78
+				
+				document.write("<h2>Vielen Dank</h2><br>");			
+				document.write("<p>Sie Tanken: " + liter + " Liter " + fuel + "</p><br>");
+				document.write("<p>Die Gesamtsumme beträgt: " + calc + "</p>");			
+			}
+			else
+			{
+				document.write("<p>Bitte nur Zahlen bei der Literangabe überprüfen</p>");
+			}
 		}
-		
-		
+		else
+		{	
+			document.write("<p>Bitte die Treibstoffangabe überprüfen. Mögliche Treibstoffarten sind Diesel, Super oder E10</p>");			
+		}
 		</script>
-		
-		<p>Man kann für eine Anweisung auch mehrere Bedingungen in nur einer if-Anweisung formulieren. Dabei werden die Vergleichsoperationen, die Bedingungen mittels Logischem Operator verbunden. Sollen zwei Bedingungen true sein, wird das logische UND verwendet, mit && als Symbol. Dieses erwartet auf seinen beiden Seiten einen true-Wert, um selber ein true zurückgeben zu können. Ist auch nur auf einer der beiden Seiten oder auf beiden ein false-Wert, wird auch das logische UND false ergeben</p>
-		
 	</body>
 </html>
