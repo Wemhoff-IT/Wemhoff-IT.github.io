@@ -14,7 +14,8 @@
 		let liter = parseFloat(window.prompt("Wie viel Liter Treibstoff möchten Sie tanken?").trim());
 			
 		// check if value is number
-		if(typeof(liter) === "number")
+		document.write(typeof(liter));	
+		if(typeof(liter) === "number" && liter > 0)
 		{
 			let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
 
