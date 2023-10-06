@@ -20,9 +20,9 @@
 			{
 				let calc;			
 
-				if(fuel == "Diesel") calc = Math.floor(liter * 1.74)
-				if(fuel == "Super") calc = Math.floor(liter * 1.82)
-				if(fuel == "E10") calc = Math.floor(liter * 1.78)
+				if(fuel == "Diesel") calc = Math.floor(liter * 1.74).toFixed(2)
+				if(fuel == "Super") calc = Math.floor(liter * 1.82).toFixed(2)
+				if(fuel == "E10") calc = Math.floor(liter * 1.78).toFixed(2)
 				
 				document.write("<h2>Vielen Dank</h2><br>");			
 				document.write("<p>Sie Tanken: " + liter + " Liter " + fuel + ".</p><br>");
