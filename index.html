@@ -16,14 +16,13 @@
 		// check if value is number
 		document.write(typeof(liter));	
 		document.write(liter);	
-		if(typeof(liter) === "number" && liter > 0)
+		if(liter != "NaN" && liter > 0)
 		{
 			let fuel = window.prompt("Welche Art Treibstoff möchten Sie tanken?").trim();
 
 			// check for possible fuels
 			if(fuel == "Diesel" || fuel == "Super" || fuel == "E10" )
 			{
-
 				let calc;		
 				
 				// calculate and fix float multiplication error
