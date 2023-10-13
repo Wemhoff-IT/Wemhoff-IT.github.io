@@ -3,30 +3,86 @@
 	<head>
 		<meta charset="utf-8">
 		<title>JavaScript</title>	
-		<link rel="stylesheet" href="./index.css">		
+		<link rel="stylesheet" href="./index.css">			
 	</head>
 	<body>
 	
 		<h1 class="center">Zahlenraten</h1>
 
+		<!-- <div class="bubble left">Bro ipsum dolor sit amet gaper backside single track, manny Bike epic clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps</div>
+		<div class="bubble right">Ok, Thank you</div>
+		<div class="bubble left"> ut labore et dolore magna </div> -->
+		<div>
+			<input type="text" name="number" onkeypress="clickPress(event)" id="guessInput" list="numbers" autocomplete="off" />
+				<datalist id="numbers">
+  				<option>1</option>
+ 				<option>2</option>
+  				<option>3</option>
+  				<option>4</option>
+ 				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				</datalist>
+			<button class="button-5" onclick="checktheMath()" id="btnGuess">Raten</button>
+		</div>
+		
 		<script>
 
 		let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-		let guess = parseFloat(window.prompt("Bitte eine Zahl zwichen 1 und 10 Raten!").trim());
-		let i = 1;
 		
-		while(guess != rnd)
-		{
-			i++;			
-			if(guess > rnd)
-				guess = parseFloat(window.prompt("Leider zu Hoch! Bitte die Zahl noch einmal Raten!").trim());
+		let divGuess = document.createElement('div');
+		let divError = document.createElement('div');
+		let divSuccess = document.createElement('div');
+
+		function checktheMath()
+		{	
+			divError.remove();
+			divGuess.remove();
+			divSuccess.remove();
+
+			let guess = document.getElementById('guessInput').value	
+			let guessInt = parseInt(guess);
+			divGuess = document.createElement('div');			
+			divGuess.classList.add('bubble', 'left');
+
+			if(guessInt < 10)
+			{
+				divGuess.innerHTML =  '0' + guessInt;
+			}
 			else
-				guess = parseFloat(window.prompt("Leider zu Niedrig! Bitte die Zahl noch einmal Raten!").trim());
+			{
+				divGuess.innerHTML =  guessInt;
+			}
+			document.body.appendChild(divGuess);			
+									
+			if(guess != rnd)
+			{						
+				divError.classList.add('bubble', 'right');
+
+				if(guess < rnd)				
+					divError.innerHTML = "Leider zu Niedrig! Bitte die Zahl noch einmal Raten!";
+				else
+					divError.innerHTML = 'Leider zu Hoch! Bitte die Zahl noch einmal Raten!';
+
+				document.body.appendChild(divError);
+			}
+			else
+			{				
+				divSuccess.classList.add('bubble', 'right');
+				divSuccess.innerHTML = 'Richtig geraten! +  Die Zahl war: ' + guess + '<br>';				
+				document.body.appendChild(divSuccess);
+			}						
 		}
 
-		document.write("<p class='center'>Richtig geraten!" + " Die Zahl war: " + guess + "</p> <br>");
-		document.write("<p class='center'>Sie haben " + i + " versuche gebraucht!</p> <br>");			
-
+		function clickPress(event) {
+   			if (event.keyCode == 13) {
+				checktheMath();
+    		}
+		}	
+		
 		</script>
 	</body>
 </html>
