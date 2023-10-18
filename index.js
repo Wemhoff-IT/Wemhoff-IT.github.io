@@ -1,11 +1,13 @@
-let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-		
-		let divGuess = document.createElement('div');
-		let divError = document.createElement('div');
-		let divSuccess = document.createElement('div');
 
-		function checktheMath()
+
+		function checkTheMath()
 		{	
+
+			let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);		
+			let divGuess = document.createElement('div');
+			let divError = document.createElement('div');
+			let divSuccess = document.createElement('div');		
+
 			divError.remove();
 			divGuess.remove();
 			divSuccess.remove();
@@ -23,7 +25,8 @@ let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);
 			{
 				divGuess.innerHTML =  guessInt;
 			}
-			document.body.appendChild(divGuess);			
+			document.getElementById('divGuessGame').appendChild(divGuess);			
+			//document.body.appendChild(divGuess);			
 									
 			if(guess != rnd)
 			{						
@@ -34,18 +37,44 @@ let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);
 				else
 					divError.innerHTML = 'Leider zu Hoch! Bitte die Zahl noch einmal Raten!';
 
-				document.body.appendChild(divError);
+				document.getElementById('divGuessGame').appendChild(divError);
+				//document.body.appendChild(divError);
 			}
 			else
 			{				
 				divSuccess.classList.add('bubble', 'right');
-				divSuccess.innerHTML = 'Richtig geraten! +  Die Zahl war: ' + guess + '<br>';				
-				document.body.appendChild(divSuccess);
+				divSuccess.innerHTML = 'Richtig geraten! +  Die Zahl war: ' + guess + '<br>';
+								
+				document.getElementById('divGuessGame').appendChild(divSuccess);
+				//document.body.appendChild(divSuccess);
 			}						
 		}
 
-		function clickPress(event) {
+		function enterCheckTheMath(event) {
    			if (event.keyCode == 13) {
-				checktheMath();
+				checkTheMath();
     		}
 		}	
+
+		function countdown()
+		{
+			let jetzt = new Date();
+			let dann = new Date(2023,10,2,8,0,0);
+			let diff = dann - jetzt;
+			let diffsek = Math.floor(diff/1000);
+			let diffmin = Math.floor(diffsek/60);
+			let diffstd = Math.floor(diffmin/60);
+			let difftag = Math.floor(diffstd/24);
+			let reststd = diffstd%24;
+			let restmin = diffmin%60;
+			let restsek = diffsek%60;
+			
+			let ausgabe = difftag+" Tage, "+reststd+" Stunden, "+restmin+" Minuten, "+restsek+" Sekunden bis zur Klausur";
+			
+			document.getElementById("anzeige").innerHTML = ausgabe;
+		}
+
+		function auslesen()
+		{
+
+		}
