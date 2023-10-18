@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<title>JavaScript</title>	
 		<link rel="stylesheet" href="./index.css">			
-		<script src="index.js"></script>
-		<!--aufgabe für 16.10- Bildergalerie mit klick in großer ansicht darstellen ordner tag09-->
+		<script src="index.js"></script>		
+		<!-- -->
 	</head>
 	<body>
 		<div class="container">
@@ -14,46 +14,51 @@
 				<input style="height: 13px;" type="text" name="number" onkeypress="enterCheckTheMath(event)" id="guessInput" autocomplete="off" />
 				<button style="height: 10px;" class="button-5" onclick="checkTheMath()" id="btnGuess">Raten</button>
 			</div>
+
 			<div class="date" id="divCountdown">								
 				<div style="text-align: center;" id="anzeige"></div>
 				<script>
 					window.setInterval(countdown,1000);
 				</script>
 			</div>
-			<div class="tshirtForm">				
-				<form>
-					<fieldset>
-						<label>Farbe</label>						
-						<select name="farbe">
-							<option>Grün</option>
-							<option>Blau</option>
-							<option>Rot</option>
-						</select><br>
-						<label>Schriftart</label>										
-						<select name="schriftart">
-							<option>Arial</option>
-							<option>Times New Roman</option>							
-						</select><br>
-						<label>Ausrichtung</label>										
-						<select name="ausrichtung">
-							<option>Links</option>
-							<option>Rechts</option>							
-						</select><br>
-						<label>Größe</label>					
-						<select name="groesse">
-							<option>S</option>
-							<option>L</option>
-							<option>XL</option>
-							<option>XXL</option>
-						</select><br>
-					<br>
-					<button onclick="auslesen();">Auslesen</button>
-				</fieldset>					
+
+			<div class="tshirtForm">		
+				<img src="tshirt.jpg" alt=""></img>		
+				<div style="color: black;" class="tshirtAusgabe" id="ausgabeTshirt"></div>
+				<form name="f" onsubmit="return false">		
+						
+					<label>Ihr Text</label>						
+					<input id="tshirtTextInput" type="text" style="height: 5px;"> <br>
+
+					<label>Farbe</label>						
+					<select name="farbe">
+						<option>green</option>
+						<option>blue</option>
+						<option>red</option>
+					</select><br>
+
+					<label>Schriftart</label>										
+					<select name="schriftart">
+						<option>Arial</option>
+						<option>Times New Roman</option>							
+					</select><br>
+
+					<label>Ausrichtung</label>										
+					<select name="ausrichtung">
+						<option>left</option>
+						<option>right</option>							
+					</select><br>
+
+					<label>Größe</label>					
+					<select name="groesse">
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+					</select><br>					
+					<button class="button-5" onclick="auslesen()">Auslesen</button>				
 				</form>
 			</div>
-			<div class="tshirt">				
-				<img src="tshirt.jpg" alt=""></img>
-			</div>
-		</div>
+		</div>		
 	</body>
 </html>

@@ -29,12 +29,9 @@
   }
   
   body {
-    background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, rgb(255, 20, 32)) fixed;	
-	font: normal 30px/1.6 system-ui, sans-serif;
-  color: white;
-	margin: 0;
-	min-height: 100vh;		
-	gap: 10px;
+  background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, rgb(255, 20, 32)) fixed;	
+	font: normal 30px/1.6 system-ui, sans-serif; 
+  color: white; 
   }
 
 .button-5 {
@@ -120,7 +117,8 @@
     height: 45%;        
   }
 
-  .tshirtForm {        
+  .tshirtForm {  
+    position: relative;      
     float: right;  
     background-color: #16161600;     
     left: 0;    
@@ -132,22 +130,13 @@
     height: 4px;      
   }
 
-  .tshirt {   
-    position: fixed;                 
-    bottom: 0px;
-    right: 0px;    
-    width: 45%;
-    height: 65%;    
-    text-align: center;
-  }
-
-  fieldset {
-    min-width: 100px;
-    display: inline-block;
-}
-
-fieldset input{
-    float: right;
+.tshirtAusgabe{
+  border: 1px solid red;
+  width: 180px;
+  height: 300px;
+  position: absolute;
+  top: 200px;
+  left: 120px;
 }
 
 

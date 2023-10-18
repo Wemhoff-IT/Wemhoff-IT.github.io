@@ -25,8 +25,7 @@
 			{
 				divGuess.innerHTML =  guessInt;
 			}
-			document.getElementById('divGuessGame').appendChild(divGuess);			
-			//document.body.appendChild(divGuess);			
+			document.getElementById('divGuessGame').appendChild(divGuess);						
 									
 			if(guess != rnd)
 			{						
@@ -37,16 +36,14 @@
 				else
 					divError.innerHTML = 'Leider zu Hoch! Bitte die Zahl noch einmal Raten!';
 
-				document.getElementById('divGuessGame').appendChild(divError);
-				//document.body.appendChild(divError);
+				document.getElementById('divGuessGame').appendChild(divError);				
 			}
 			else
 			{				
 				divSuccess.classList.add('bubble', 'right');
 				divSuccess.innerHTML = 'Richtig geraten! +  Die Zahl war: ' + guess + '<br>';
 								
-				document.getElementById('divGuessGame').appendChild(divSuccess);
-				//document.body.appendChild(divSuccess);
+				document.getElementById('divGuessGame').appendChild(divSuccess);				
 			}						
 		}
 
@@ -76,5 +73,9 @@
 
 		function auslesen()
 		{
-
+			document.querySelector("#ausgabeTshirt").innerHTML = document.f.tshirtTextInput.value;
+			document.querySelector("#ausgabeTshirt").style.color = document.f.farbe.value;
+			document.querySelector("#ausgabeTshirt").style.fontFamily = document.f.farbe.value;
+			document.querySelector("#ausgabeTshirt").style.textAlign = document.f.ausrichtung.value;
+			document.querySelector("#ausgabeTshirt").style.fontSize = document.f.groesse.value;
 		}
