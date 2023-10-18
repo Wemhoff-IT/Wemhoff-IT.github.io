@@ -77,5 +77,5 @@
 			document.querySelector("#ausgabeTshirt").style.color = document.f.farbe.value;
 			document.querySelector("#ausgabeTshirt").style.fontFamily = document.f.farbe.value;
 			document.querySelector("#ausgabeTshirt").style.textAlign = document.f.ausrichtung.value;
-			document.querySelector("#ausgabeTshirt").style.fontSize = document.f.groesse.value;
+			document.querySelector("#ausgabeTshirt").style.fontSize = document.f.groesse.value + "px";
 		}
