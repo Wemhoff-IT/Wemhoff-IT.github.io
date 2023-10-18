@@ -32,6 +32,7 @@
   background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, rgb(255, 20, 32)) fixed;	
 	font: normal 30px/1.6 system-ui, sans-serif; 
   color: white; 
+  scroll-behavior: auto;
   }
 
 .button-5 {
@@ -123,12 +124,10 @@
     background-color: #16161600;     
     left: 0;    
     width: 45%;
-    height: 45%;        
+    height: 45%;   
+    text-align: center;     
   }
 
-  .formInput{
-    height: 4px;      
-  }
 
 .tshirtAusgabe{
   border: 1px solid red;
@@ -136,7 +135,7 @@
   height: 300px;
   position: absolute;
   top: 200px;
-  left: 120px;
+  left: 340px;
 }
 
 

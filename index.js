@@ -2,7 +2,6 @@
 
 		function checkTheMath()
 		{	
-
 			let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);		
 			let divGuess = document.createElement('div');
 			let divError = document.createElement('div');
@@ -78,4 +77,40 @@
 			document.querySelector("#ausgabeTshirt").style.fontFamily = document.f.farbe.value;
 			document.querySelector("#ausgabeTshirt").style.textAlign = document.f.ausrichtung.value;
 			document.querySelector("#ausgabeTshirt").style.fontSize = document.f.groesse.value + "px";
+		}
+
+		function checkMail()
+		{
+			let mail = document.getElementById('validMail').value;
+			document.getElementById("mailAusgabe").innerHTML = mail;
+			
+			if(mail.length >= 6)
+			{
+				 let at = mail.indexOf('@');
+				 let dot = mail.lastIndexOf('.');
+				 if(at > 0 && dot > 0)
+				 {
+					if(at < dot)
+					{
+						document.querySelector("#mailAusgabe").style.color = "green";
+						document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse Korrekt";		
+					}
+					else
+					{
+						document.querySelector("#mailAusgabe").style.color = "red";
+						document.getElementById("mailAusgabe").innerHTML = "Das '@' Zeichen muss vor dem punkt auftauchen!";		
+					}
+				 }
+				 else
+				 {
+					document.querySelector("#mailAusgabe").style.color = "red";
+					document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse muss ein '@' und einen '.' enthalten";	
+				 }
+
+			}
+			else
+			{
+				document.querySelector("#mailAusgabe").style.color = "red";
+				document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse muss mindest 6 Zeichen lang sein!";
+			}
 		}

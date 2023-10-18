@@ -12,23 +12,29 @@
 			<div class="guessgame" id="divGuessGame">
 				<h1 style="font-size: xx-large;" class="center">Zahlenraten</h1>		
 				<input style="height: 13px;" type="text" name="number" onkeypress="enterCheckTheMath(event)" id="guessInput" autocomplete="off" />
-				<button style="height: 10px;" class="button-5" onclick="checkTheMath()" id="btnGuess">Raten</button>
+				<button style="height: 5px;" class="button-5" onclick="checkTheMath()" id="btnGuess">Raten</button>
 			</div>
 
-			<div class="date" id="divCountdown">								
-				<div style="text-align: center;" id="anzeige"></div>
-				<script>
-					window.setInterval(countdown,1000);
-				</script>
-			</div>
-
+			<div class="date" id="divCountdown">						
+				<div style="text-align: center;">
+					<input id="validMail" style="height: 5px" type="email" onkeydown="checkMail()" >
+					<button id="btnMail" onclick="checkMail()">E-mail Prüfen</button> <br>
+					<label id="mailAusgabe"></label> <br>
+				</div>	<br>	
+					<div style="text-align: center;" id="anzeige">
+					</div> <br>
+					<script>
+						window.setInterval(countdown,1000);
+					</script>
+				</div>
+			
 			<div class="tshirtForm">		
 				<img src="tshirt.jpg" alt=""></img>		
 				<div style="color: black;" class="tshirtAusgabe" id="ausgabeTshirt"></div>
 				<form name="f" onsubmit="return false">		
 						
 					<label>Ihr Text</label>						
-					<input id="tshirtTextInput" type="text" style="height: 5px;"> <br>
+					<input id="tshirtTextInput" type="text" style="height: 5px; text-align: center;"> <br>
 
 					<label>Farbe</label>						
 					<select name="farbe">
@@ -57,7 +63,7 @@
 						<option>50</option>
 						<option>60</option>
 					</select><br>					
-					<button class="button-5" onclick="auslesen()">Auslesen</button>				
+					<button class="button-5" onclick="auslesen()">Auslesen</button>									
 				</form>
 			</div>
 		</div>		
