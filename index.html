@@ -4,68 +4,78 @@
 		<meta charset="utf-8">
 		<title>JavaScript</title>	
 		<link rel="stylesheet" href="./index.css">			
-		<script src="index.js"></script>		
+		<script src="index.js"></script>
+		<style>
+		#klein img{
+			height: 100px;
+		}
+		#verfolger {
+			color: blue;
+			margin: 0;
+			position: absolute;
+		}
+		#kreis{
+			background-color: red;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: relative;
+		}
+		</style>		
 		<!-- -->
 	</head>
-	<body>
-		<div class="container">
-			<div class="guessgame" id="divGuessGame">
-				<h1 style="font-size: xx-large;" class="center">Zahlenraten</h1>		
-				<input style="height: 13px;" type="text" name="number" onkeypress="enterCheckTheMath(event)" id="guessInput" autocomplete="off" />
-				<button style="height: 5px;" class="button-5" onclick="checkTheMath()" id="btnGuess">Raten</button>
-			</div>
+	<body>		
+		<h3>Uhrzeit</h3>
+		<div id="uhranzeige"></div>
+		<script>
+		 // Aufruf der funktion
+		 uhr();
+		 setInterval(uhr, 1000);
+		</script>		
 
-			<div class="date" id="divCountdown">						
-				<div style="text-align: center;">
-					<input id="validMail" style="height: 5px" type="email" onkeydown="checkMail()" >
-					<button id="btnMail" onclick="checkMail()">E-mail Prüfen</button> <br>
-					<label id="mailAusgabe"></label> <br>
-				</div>	<br>	
-					<div style="text-align: center;" id="anzeige">
-					</div> <br>
-					<script>
-						window.setInterval(countdown,1000);
-					</script>
-				</div>
-			
-			<div class="tshirtForm">		
-				<img src="tshirt.jpg" alt=""></img>		
-				<div style="color: black;" class="tshirtAusgabe" id="ausgabeTshirt"></div>
-				<form name="f" onsubmit="return false">		
-						
-					<label>Ihr Text</label>						
-					<input id="tshirtTextInput" type="text" style="height: 5px; text-align: center;"> <br>
+		<h3>Bildergalerie</h3>
+		<div id="klein">
+			<img src="sw05.jpg" alt="alttxt 1">
+			<img src="sw06.jpg" alt="alttxt 2">
+			<img src="sw07.jpg" alt="alttxt 3">
+			<img src="sw08.jpg" alt="alttxt 4">
+		</div>
+		<div id="gross">
+			<img src="sw05.jpg" >
+			<h4>Kessel Run</h4>
+		</div>
+		<script>
+			for(let i=0;i<document.querySelectorAll('#klein img').length;i++)
+				document.querySelectorAll('#klein img')[i].onmouseover = function() {tauschen(this);};			
+		</script>
 
-					<label>Farbe</label>						
-					<select name="farbe">
-						<option>green</option>
-						<option>blue</option>
-						<option>red</option>
-					</select><br>
+		<h3>Formular auslesen</h3>
+		<form name="f" onsubmit="return false;">
+			<input type="number" name="z1">
+			<input type="number" name="z2">
+			<button onclick="summe()">Rechnen</button>
+		</form>
+		<div id="rechenausgabe"></div>
 
-					<label>Schriftart</label>										
-					<select name="schriftart">
-						<option>Arial</option>
-						<option>Times New Roman</option>							
-					</select><br>
+		<h3>Seitenhintergrund</h3>
+		<button id="b1" onclick="farbwechsel()">Hintergrundfarbe wechseln</button>
 
-					<label>Ausrichtung</label>										
-					<select name="ausrichtung">
-						<option>left</option>
-						<option>right</option>							
-						<option>center</option>							
-					</select><br>
+		<h3>Element erzeugen</h3>
+		<form name="f2" onsubmit="return false;">
+			<input type="text" name="tx">
+			<button onclick="erzeugen()">Absatz erzeugen</button>
+			<div id="elementausgabe"></div>
+		</form>
 
-					<label>Größe</label>					
-					<select name="groesse">
-						<option>30</option>
-						<option>40</option>
-						<option>50</option>
-						<option>60</option>
-					</select><br>					
-					<button class="button-5" onclick="auslesen()">Auslesen</button>									
-				</form>
-			</div>
-		</div>		
+		<h3 id="verfolger">Mausverfolger</h3>
+		<script>
+			//document.onmousemove = function() { mausfolgen(event);};
+		</script>
+
+		<h3>Animation</h3>
+		<button onclick="starten()">Start</button>
+		<button onclick="stoppen()">Stop</button>
+		<div id="kreis"></div>
+
 	</body>
 </html>

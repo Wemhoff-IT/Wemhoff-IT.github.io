@@ -100,8 +100,19 @@
   }
 
   .container {  
-    position: relative;    
+    position: relative;
+    text-align: center;
+    align-items: center;
   }
+
+  .imgDisplay {
+    height: 200px;
+  }
+
+  .imgMain {
+    height: auto;
+  }
+
 
   .guessgame {
     position: fixed;

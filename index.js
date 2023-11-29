@@ -1,116 +1,108 @@
+function uhr(){
+
+	let jetzt = new Date();
+
+	let std = jetzt.getHours();
+	let min = jetzt.getMinutes();
+	let sek = jetzt.getSeconds();
+
+	if(std < 10) std = "0" + std;
+	if(min < 10) min = "0" + std;
+	if(sek < 10) sek = "0" + std;
+
+	document.querySelector('#uhranzeige').innerHTML = std + ':' + min + ':' + sek ; 
+}
+
+// bildergalerie
+function tauschen(obj){
+
+	let q = obj.src;
+	let t = obj.alt;
+	document.querySelector("#gross img").src = q;	
+	document.querySelectorAll("h4")[0].innerHTML = t;	
+}
 
 
-		function checkTheMath()
-		{	
-			let rnd = Math.floor(Math.random() * (10 - 1 + 1) + 1);		
-			let divGuess = document.createElement('div');
-			let divError = document.createElement('div');
-			let divSuccess = document.createElement('div');		
+// zahlen addieren
+function summe(){
+	
+	let a = document.f.z1.value;
+	let b = document.f.z2.value;
+	a = parseInt(a);
+	b = parseInt(b);
+	let c = a + b;
 
-			divError.remove();
-			divGuess.remove();
-			divSuccess.remove();
+	document.querySelector("#rechenausgabe").innerHTML = c;	
 
-			let guess = document.getElementById('guessInput').value	
-			let guessInt = parseInt(guess);
-			divGuess = document.createElement('div');			
-			divGuess.classList.add('bubble', 'left');
+}
 
-			if(guessInt < 10)
-			{
-				divGuess.innerHTML =  '0' + guessInt;
-			}
-			else
-			{
-				divGuess.innerHTML =  guessInt;
-			}
-			document.getElementById('divGuessGame').appendChild(divGuess);						
-									
-			if(guess != rnd)
-			{						
-				divError.classList.add('bubble', 'right');
+// zufällige Seitenfarbe
 
-				if(guess < rnd)				
-					divError.innerHTML = "Leider zu Niedrig! Bitte die Zahl noch einmal Raten!";
-				else
-					divError.innerHTML = 'Leider zu Hoch! Bitte die Zahl noch einmal Raten!';
+let farbe = ["white", "lightblue", "lightgreen", "yellow", "burlywood", "peachpuff", "lightcoral", "orange"]
 
-				document.getElementById('divGuessGame').appendChild(divError);				
-			}
-			else
-			{				
-				divSuccess.classList.add('bubble', 'right');
-				divSuccess.innerHTML = 'Richtig geraten! +  Die Zahl war: ' + guess + '<br>';
-								
-				document.getElementById('divGuessGame').appendChild(divSuccess);				
-			}						
-		}
+function farbwechsel(){
 
-		function enterCheckTheMath(event) {
-   			if (event.keyCode == 13) {
-				checkTheMath();
-    		}
-		}	
+	// css zuweisung überschreibt die funktion
+	let rnd = Math.floor(Math.random()*farbe.length) 
+	document.body.style.backgroundColor = farbe[rnd];
 
-		function countdown()
-		{
-			let jetzt = new Date();
-			let dann = new Date(2023,10,2,8,0,0);
-			let diff = dann - jetzt;
-			let diffsek = Math.floor(diff/1000);
-			let diffmin = Math.floor(diffsek/60);
-			let diffstd = Math.floor(diffmin/60);
-			let difftag = Math.floor(diffstd/24);
-			let reststd = diffstd%24;
-			let restmin = diffmin%60;
-			let restsek = diffsek%60;
-			
-			let ausgabe = difftag+" Tage, "+reststd+" Stunden, "+restmin+" Minuten, "+restsek+" Sekunden bis zur Klausur";
-			
-			document.getElementById("anzeige").innerHTML = ausgabe;
-		}
+}
 
-		function auslesen()
-		{
-			document.querySelector("#ausgabeTshirt").innerHTML = document.f.tshirtTextInput.value;
-			document.querySelector("#ausgabeTshirt").style.color = document.f.farbe.value;
-			document.querySelector("#ausgabeTshirt").style.fontFamily = document.f.farbe.value;
-			document.querySelector("#ausgabeTshirt").style.textAlign = document.f.ausrichtung.value;
-			document.querySelector("#ausgabeTshirt").style.fontSize = document.f.groesse.value + "px";
-		}
+// Absatz erzeugen und in div legen
+function erzeugen(){
+	let tx = document.f2.tx.value;
+	let absatz = document.createElement("p");
 
-		function checkMail()
-		{
-			let mail = document.getElementById('validMail').value;
-			document.getElementById("mailAusgabe").innerHTML = mail;
-			
-			if(mail.length >= 6)
-			{
-				 let at = mail.indexOf('@');
-				 let dot = mail.lastIndexOf('.');
-				 if(at > 0 && dot > 0)
-				 {
-					if(at < dot)
-					{
-						document.querySelector("#mailAusgabe").style.color = "green";
-						document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse Korrekt";		
-					}
-					else
-					{
-						document.querySelector("#mailAusgabe").style.color = "red";
-						document.getElementById("mailAusgabe").innerHTML = "Das '@' Zeichen muss vor dem punkt auftauchen!";		
-					}
-				 }
-				 else
-				 {
-					document.querySelector("#mailAusgabe").style.color = "red";
-					document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse muss ein '@' und einen '.' enthalten";	
-				 }
+	absatz.innerHTML = tx;
 
-			}
-			else
-			{
-				document.querySelector("#mailAusgabe").style.color = "red";
-				document.getElementById("mailAusgabe").innerHTML = "E-Mail adresse muss mindest 6 Zeichen lang sein!";
-			}
-		}
+	document.querySelector('#elementausgabe').appendChild(absatz);
+}
+
+
+// Mausverfolger
+
+function mausfolgen(e){
+
+	let lf = e.pageX;
+	let tp = e.pageY;
+
+	document.querySelector("#verfolger").style.top	= tp + "px";
+	document.querySelector("#verfolger").style.left	= lf + "px";
+}
+
+// Animation
+
+let x = 0;
+let y = 0;
+
+let r = 2;
+let motor;
+
+function bewegung(){
+
+	x += r;
+	y += r;
+	if(x>600)
+	{
+		r = -2;
+	}
+	if(x<0)
+	{
+		r = 2;
+	}
+	
+	document.querySelector('#kreis').style.left = x + "px";
+	document.querySelector('#kreis').style.top = y + "px";
+}
+
+
+function starten(){
+
+	stoppen();
+	motor = setInterval(bewegung, 20);			
+}
+
+function stoppen(){
+	
+	clearInterval(motor);	
+}
